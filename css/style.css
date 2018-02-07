@@ -50,8 +50,8 @@ body {
 .masthead .masthead-logo {
   position: relative;
   display: block;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
 }
