@@ -115,7 +115,7 @@ body {
 
 @media (max-width: 768px) {
   .overlay {
-    background-color: rgba(52, 62, 89, .80);
+    background-color: rgba(52, 62, 89, .9);
   }
 
   .masthead {
@@ -124,9 +124,7 @@ body {
   }
 
   .masthead .masthead-bg {
-    background-color: rgba(52, 62, 89, .00);
-    transform: skewX(-8deg);
-    transform-origin: top right;
+    background-color: rgba(52, 62, 89, 0);
   }
 
   .masthead .masthead-logo {
