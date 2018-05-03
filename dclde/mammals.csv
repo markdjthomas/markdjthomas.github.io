@@ -1,0 +1,12 @@
+id,name,pic_size,pic
+1,Bowhead Whale,284,./media/images/BH.jpg
+2,Bearded Seal,220,./media/images/BS.jpg
+3,Blue Whale,619,./media/images/BW.jpg
+4,Grey Seal,103,./media/images/GS.jpg
+5,Humpback Whale,317,./media/images/HB.jpg
+6,Right Whale,506,./media/images/RW.jpg
+7,Sei Whale,149,./media/images/SW.jpg
+8,Walrus,158,./media/images/WA.jpg
+9,Beluga Whale,147,./media/images/WW.jpg
+10,Fin Whale,215,./media/images/FW.jpg
+11,Minke Whale,210,./media/images/MW.jpg
