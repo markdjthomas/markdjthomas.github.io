@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <head>
    <meta charset="utf-8">
-   <title>DCLDE 2018 - MammalNet</title>
-
    <meta name="description" content="MammalNet (2018-06)">
    <meta name="author" content="Mark Thomas">
+   <title>DCLDE 2018 - MammalNet</title>
+   <link rel="shortcut icon" href="favicon.ico" />
 
    <!-- Core and extension CSS files -->
    <link rel="stylesheet" media="screen" href="core/deck.core.css">
@@ -17,18 +16,16 @@
    <link rel="stylesheet" media="screen" href="transition/horizontal-slide.css">
    <link rel="stylesheet" media="print" href="core/print.css">
 
-   <link rel="shortcut icon" href="favicon.ico" />
-
+   <!-- JavaScript -->
    <script src="vendor/jquery.min.js"></script>
    <script src="vendor/modernizr.custom.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
 </head>
-
 <body>
    <div class="deck-container">
-
+      <!-- TITLE PAGE -->
       <section class="slide" id="title">
-         <h3 style="font-weight: 500">2018 DCLDE Workshop</h3>
+         <p style="font-weight: 500">2018 DCLDE Workshop</p>
          <h1>
             MammalNet <br />
             <span style="color: #ef8376; font-size: .75em; font-style: italic; font-weight: 400">
@@ -36,28 +33,36 @@
             </span>
          </h1>
          <div id="title-author">
-            <p>Mark Thomas<sup style="font-style: italic; font-size: .66em">1,2</sup></p>
-            <p style="font-size: .75em; font-style: italic">
-               <sup>1</sup>JASCO Applied Sciences, Dartmouth NS <br style="margin-bottom: .5em" />
-               <sup>2</sup>Dalhousie University, Dept. of Computer Science
+            <p>
+               <span style="font-weight: 300">
+                  <strong style="font-weight: 600">Mark Thomas</strong><sup style="font-style: italic; font-size: .66em">1,2</sup>,
+                  Bruce Martin<sup style="font-style: italic; font-size: .66em">1,3</sup>
+                   & Stan Matwin<sup style="font-style: italic; font-size: .66em">2</sup>
+               </span>
+            </p>
+            <p style="font-size: .66em; font-style: italic; font-weight: 300">
+               <sup>1 </sup>JASCO Applied Sciences, Dartmouth NS <br style="margin-bottom: .5em" />
+               <sup>2 </sup>Dalhousie University, Dept. of Computer Science <br style="margin-bottom: .5em" />
+               <sup>3 </sup>Dalhousie University, Dept. of Oceanography
             </p>
          </div>
       </section>
 
+      <!-- OUTLINE -->
       <section class="slide" id="talk-outline">
          <h2>Presentation outline</h2>
          <ul>
             <li>What is the problem we're trying to address?</li>
          </ul>
          <p class="slide" align="center" style="width: 67%; margin: 0 auto; font-style:italic">
-            Fairly obvious... marine mammal species classification
+            Marine mammal species classification
          </p>
          <br />
          <ul>
             <li>Proposed methodology</li>
          </ul>
          <p class="slide" align="center" style="width: 67%; margin: 0 auto; font-style:italic">
-            Naïve approach using Deep Convolutional Neural Networks
+            Deep Convolutional Neural Networks
          </p>
          <br />
          <ul>
@@ -68,22 +73,22 @@
          </p>
       </section>
 
+      <!-- PROBLEM DEFINITION -->
       <section class="slide no-header" id="species-classification">
          <h2>Marine mammal species classification</h2>
          <p>
             Provided a large corpus of annotated spectrograms of mammal vocalizations and their corresponding species label.
          </p>
-         <p>
-            ...
-            <!-- TODO -->
-         </p>
+         <div class="slide">
+            <img width="650" src="media/images/pamlab.png"/>
+         </div>
       </section>
 
+      <!-- DATASET -->
       <section class="slide" id="dataset">
          <h2>Dataset</h2>
          <div id="right-side" style="width: 33%">
-            <br />
-            <br />
+            <br /><br />
             <ul>
                <li class="slide">Large dataset
                   <div class="small-comment" style="font-size: 0.667em">(&#8776; 450,000 instances)</div>
@@ -214,11 +219,9 @@
          </div>
       </section>
 
+      <!-- CTA -->
       <section class="slide" id="uh-oh-problem">
-         <br />
-         <br />
-         <br />
-         <br />
+         <br /><br /><br /><br />
          <p align="center">
             There is just one problem...
          </p>
@@ -226,14 +229,7 @@
          <div class="slide">
             <p align="center">
                I'm a computer scientist<sup>*</sup> &#128104;&#8205;&#128187; &#128517;
-            </p>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            </p><br /><br /><br /><br /><br /><br /><br />
             <div class="small-comment" style="text-align: right; font-size: 0.667em; padding-right: 5em">
                <p style="font-style:italic; font-size: 0.667em">
                   <span style="font-size: 1.75em">*</span> so not really a scientist?
@@ -242,23 +238,23 @@
          </div>
       </section>
 
+      <!-- METHODOLOGY -->
       <section class="slide" id="proposed-methodology">
          <h2>Proposed Methodology</h2>
-         <p>
-            Spectrograms can naïvely be thought of as greyscale images.
+         <br />
+         <p class="slide" style="text-align: center">
+            Can I naïvely think of these spectrogram annotations as greyscale images?
          </p>
-         <p>
-            Can we treat this as an image classification problem and use a ConvNet?
-         </p>
-         <p>
-            ...
-            <!-- TODO -->
+         <br />
+         <p class="slide" style="text-align: center">
+            Can I treat this as an image classification problem and use a ConvNet?
          </p>
       </section>
 
+      <!-- CONVNET ARCHITECTURE -->
       <section class="slide" id="network-architecture-1">
          <h2>Network Architecture (1)</h2>
-         <p>MammalNet: deep CNN inspired by the classic LeNet architecture <a href=#list-of-references>[2]</a></p>
+         <p>MammalNet: deep CNN inspired by the classic LeNet architecture <a href=#list-of-references>[1]</a></p>
          <img src="media/images/cnn.png" />
          <ol class="layers">
             <li class="slide">32 5x5x1 convolution kernels &rarr; 2x downsampling via max-pooling</li>
@@ -269,7 +265,6 @@
             <li class="slide">Output layer for the possible 11 classes</li>
          </ol>
       </section>
-
       <section class="slide" id="network-architecture-2">
          <h2>Network Architecture (2)</h2>
          <p>Further details...</p>
@@ -278,12 +273,13 @@
             <li class="slide">Batch-normalization and dropout regularization</li>
             <li class="slide">Categorical cross-entropy loss function</li>
             <li class="slide">Exponential learning-rate weight decay</li>
-            <li class="slide">Adam optimizer <a href=#list-of-references>[3]</a></li>
+            <li class="slide">Adam optimizer <a href=#list-of-references>[2]</a></li>
             <li class="slide">Roughly 172M parameters</li>
-            <li class="slide">Implemented using Tensorflow <a href=#list-of-references>[4]</a></li>
+            <li class="slide">Implemented using Tensorflow <a href=#list-of-references>[3]</a></li>
          </ul>
       </section>
 
+      <!-- TRAINING DETAILS -->
       <section class="slide" id="model-training">
          <h2>Training the ConvNet</h2>
          <p>Some details on training such a large model:</p>
@@ -291,45 +287,35 @@
             <img width="500" src="media/images/need_a_gpu.jpg"/>
          </div>
          <ul>
-            <li class="slide">Trained on Google Compute Engine using an NVIDIA Tesla K80 GPU</li>
+            <li class="slide">Trained on Compute Canada using an NVIDIA Tesla P100 GPU</li>
             <li class="slide">100 epochs per training run using minibatches of size 64</li>
-            <li class="slide">Training time &#8776;5hrs</li>
+            <li class="slide">Training time &#8776;10hrs</li>
          </ul>
       </section>
 
+      <!-- RESULTS -->
       <section class="slide" id="results-1">
          <h2>Experimental Results (1)</h2>
-         <p>
-            ...
-            <!-- TODO -->
-         </p>
+         <img width="1200" src="media/images/cross_entropy.png"/>
       </section>
-
       <section class="slide" id="results-2">
          <h2>Experimental Results (2)</h2>
-         <p>
-            ...
-            <!-- TODO -->
-         </p>
+         <img width="1200" src="media/images/accuracy.png"/>
       </section>
-
       <section class="slide" id="results-3">
          <h2>Experimental Results (3)</h2>
-         <p>
-            ...
-            <!-- TODO -->
-         </p>
+         <img width="1200" src="media/images/confusion_matrix.png"/>
       </section>
 
+      <!-- FUTURE WORK -->
       <section class="slide" id="future-work-1">
          <h2>Future Work (1)</h2>
          <p>Advances in image recognition led to further advances in object detection!</p>
-         <p>Can we apply the same deep learning techniques here? (e.g.: Sermanet et al. 2013 <a href=#list-of-references>[5]</a>, Redmon et al. 2016 <a href=#list-of-references>[6]</a>)</p>
+         <p>Can we apply the same deep learning techniques here? (e.g.: Sermanet et al. 2013 <a href=#list-of-references>[4]</a>, Redmon et al. 2016 <a href=#list-of-references>[5]</a>)</p>
          <div class="slide">
             <img width="800" src="media/images/object_detection.png"/>
          </div>
       </section>
-
       <section class="slide" id="future-work-2">
          <h2>Future Work (2)</h2>
          <p>Provided <span style="color: #ef8376; font-weight: 600; font-style: bold">Future Work (1)</span> is feasible...</p>
@@ -342,44 +328,51 @@
          </div>
       </section>
 
-      <section class="slide no-header" id="the-end">
+      <!-- THANK YOU PAGE -->
+      <section class="slide" id="the-end">
          <div class="slide-content">
             <h1 align="center">Thank you for listening!</h1>
+            <br /><br /><br /><br /><br />
+            <table align="center">
+                <tr>
+                    <td style="padding:0 25px 0 25px;"><img height="80" src="media/images/bigdatalogo.png"/></td>
+                    <td style="padding:0 25px 0 25px;"><img height="80" src="media/images/jascologo.png"/></td>
+                    <td style="padding:0 25px 0 25px;"><img height="80" src="media/images/nserclogo.jpg"/></td>
+                    <td style="padding:0 25px 0 25px;"><img height="80" src="media/images/cclogo.png"/></td>
+                </tr>
+            </table>
+
          </div>
       </section>
 
+      <!-- REFERENCES -->
       <section class="slide" id="list-of-references">
          <h2>References</h2>
          <div id="references">
-            <div id="ref-title">[1] Deep learning.</div>
-            <div id="ref-author">I. Goodfellow, A. Courville, and Yoshua Bengio.</div>
-            <div id="ref-journal">MIT press Cambridge, Vol. 1, 2016.</div>
-
-            <div id="ref-title">[2] Gradient-based learning applied to document recognition.</div>
+            <div id="ref-title">[1] Gradient-based learning applied to document recognition.</div>
             <div id="ref-author">Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner.</div>
             <div id="ref-journal">Proceedings of the IEEE, 86(11):2278-2324, 1998.</div>
 
-            <div id="ref-title">[3] Adam: A method for stochastic optimization.</div>
+            <div id="ref-title">[2] Adam: A method for stochastic optimization.</div>
             <div id="ref-author">D. P. Kingma, and J. Ba.</div>
-            <div id="ref-journal">arXiv preprint arXiv:1412.6980, 2014.</div>
+            <div id="ref-journal">arXiv preprint, arXiv:1412.6980, 2014.</div>
 
-            <div id="ref-title">[4] TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems.</div>
+            <div id="ref-title">[3] TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems.</div>
             <div id="ref-author">M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen, C. Citro, G. S. Corrado, A. Davis, J. Dean, M. Devin, S. Ghemawat, I. Goodfellow, A. Harp, G. Irving, M. Isard, Y. Jia, R. Jozefowicz, L. Kaiser, M. Kudlur, J. Levenberg, D. Mané, R. Monga, S. Moore, D. Murray, C. Olah, M. Schuster, J. Shlens, B. Steiner, I. Sutskever, K. Talwar, P. Tucker, V. Vanhoucke, V. Vasudevan, F. Viégas, O. Vinyals, P. Warden, M. Wattenberg, M. Wicke, Y. Yu, and X. Zheng.</div>
-            <div id="ref-journal">https://www.tensorflow.org/ Software available from tensorflow.org, 2015.</div>
+            <div id="ref-journal">https://www.tensorflow.org, Software available from tensorflow.org, 2015.</div>
 
-            <div id="ref-title">[5] Overfeat: Integrated recognition, localization and detection using convolutional networks.</div>
+            <div id="ref-title">[4] Overfeat: Integrated recognition, localization and detection using convolutional networks.</div>
             <div id="ref-author">P. Sermanet, D. Eigen, X. Zhang, M. Mathieu, R. Fergus, and Y. LeCun.</div>
-            <div id="ref-journal">arXiv preprint arXiv:1312.6229, 2013.</div>
+            <div id="ref-journal">arXiv preprint, arXiv:1312.6229, 2013.</div>
 
-            <div id="ref-title">[6] You only look once: Unified, real-time object detection.</div>
+            <div id="ref-title">[5] You only look once: Unified, real-time object detection.</div>
             <div id="ref-author">J. Redmon, S. Divvala, R. Girshick, and A. Farhadi.</div>
             <div id="ref-journal">Proceedings of the IEEE conference on computer vision and pattern recognition, 779-788. 2016.</div>
          </div>
-
       </section>
-
    </div>
 
+   <!-- Load resources -->
    <script src="core/deck.core.js"></script>
    <script src="extensions/menu/deck.menu.js"></script>
    <script src="extensions/goto/deck.goto.js"></script>
@@ -392,7 +385,5 @@
          $.deck('.slide');
       });
    </script>
-
 </body>
-
 </html>
