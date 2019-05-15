@@ -83,15 +83,15 @@
          <h2>Detection and classification systems (DCS)</h2>
          <p>Large collections of acoustic data collected via PAM has led to increased research into detection and classification systems (DCS)</p>
          <div class="row slide" id="dcs-info" style="padding-bottom: 0">
-            <p>From a machine learning perspective a DCS is simply heirarchical model...</p>
+            <p>From a machine learning perspective a DCS is simply hierarchical model...</p>
             <ol>
                <li>
                   <span style="color: #ef8376;">detection &#8594;</span>
-                  a binary classifier determining if a signal of interest is present
+                  A binary classifier determining if a signal of interest is present
                </li>
                <li>
                   <span style="color: #ef8376;">classification &#8594;</span>
-                  a multi-class classifer for distinguishing between sources
+                  A multi-class classifier for distinguishing between sources
                </li>
             </ol>
          </div>
@@ -180,7 +180,7 @@
                </div>
             </li>
             <li class="slide" id="spectrograms-1-li-3">
-               Because humans perceive pitch non-linearly, it is useful to also generate spectrograms on a "mel"-scale:
+               Because humans perceive pitch non-linearly, it is useful to also generate spectrograms on a "mel-scale":
                <div style="font-size: 0.8em;">
                   $$\omega_{mel} = 2595\log_{10}\left(1 + \frac{\omega_{Hz}}{700}\right)$$
                </div>
@@ -206,21 +206,21 @@
       </section>
 
       <!-- Novel Respresentation-->
-      <section class="slide" id="novel-represenation">
-         <h2>Novel represenation</h2>
+      <section class="slide" id="novel-representation">
+         <h2>Novel representation</h2>
          <p>To exploit the strategy used by experts during annotation, we employ a novel representation, by:</p>
          <ol>
-            <li class="slide" id="novel-represenation-li-1">
+            <li class="slide" id="novel-representation-li-1">
                <span style="color: #ef8376;">Generating</span> multiple spectrograms using different STFT parameters
             </li>
-            <li class="slide" id="novel-represenation-li-2">
+            <li class="slide" id="novel-representation-li-2">
                <span style="color: #ef8376;">Interpolating</span> the spectrograms such that they share the same dimensions
             </li>
-            <li class="slide" id="novel-represenation-li-3">
+            <li class="slide" id="novel-representation-li-3">
                <span style="color: #ef8376;">Stacking</span> the interpolated spectrograms to form a multi-channel tensor
             </li>
          </ol>
-         <img class="slide" id="novel-represenation-img" style="width: 90%; padding-top: 1em;" src="media/images/novel_repr.png" />
+         <img class="slide" id="novel-representation-img" style="width: 90%; padding-top: 1em;" src="media/images/novel_repr.png" />
       </section>
 
       <!-- Acoustic Recordings -->
