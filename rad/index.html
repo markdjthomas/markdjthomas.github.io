@@ -29,6 +29,11 @@
    <!-- Open the deck-container -->
    <div class="deck-container">
 
+      <!-- Status -->
+      <p class="deck-status">
+         <span class="deck-status-current"></span> of <span class="deck-status-total"></span>
+      </p>
+
       <!-- Title -->
       <section class="slide" id="title">
          <br />
@@ -623,7 +628,7 @@
                statusCurrent: '.deck-status-current',
                statusTotal: '.deck-status-total'
             },
-            countNested: true
+            countNested: false
          });
          $.deck('.slide');
          $.deck('enableScale')
