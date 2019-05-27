@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="description" content="Canadian AI 2019 - GSS">
+   <meta name="author" content="Mark Thomas">
+   <title>GSAIS 2019</title>
+   <link rel="shortcut icon" href="favicon.ico" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" media="screen" href="core/deck.core.css">
+   <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+   <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+   <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+   <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+   <link rel="stylesheet" media="screen" href="style.css">
+   <link rel="stylesheet" media="screen" href="transition/horizontal-slide.css">
+   <link rel="stylesheet" media="print" href="core/print.css">
+
+   <!-- JavaScript -->
+   <script src="vendor/jquery.min.js"></script>
+   <script src="vendor/modernizr.custom.js"></script>
+   <script src="vendor/d3.min.js"></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+</head>
+
+<body>
+
+   <!-- Open the deck-container -->
+   <div class="deck-container">
+
+      <!-- Status -->
+      <p class="deck-status">
+         <span class="deck-status-current"></span> of <span class="deck-status-total"></span>
+      </p>
+
+      <!-- Title -->
+      <section class="slide" id="title">
+         <br />
+         <p id="sup-title">Canadian AI 2019 - Graduate Student Symposium</p>
+         <p id="title-date">May 28, 2019</p>
+         <h1>Classifying baleen whale vocalizations using convolutional neural networks and a novel acoustic representation</h1>
+         <p id="title-author">Mark Thomas</p>
+         <p id="title-dept">Dalhousie University, Halifax NS, Canada</p>
+      </section>
+
+      <!-- PAM Data-->
+      <section class="slide no-header" id="pam">
+         <h2>Passive acoustic monitoring (PAM)</h2>
+         <div class="row">
+            <p>
+               Marine biologists use underwater acoustic data collected via <em>Passive Acoustic Monitoring</em> (<b>PAM</b>) to model behaviour and other characteristics of marine life.
+            </p>
+         </div>
+         <div class="row">
+            <div class="column-25">
+               <img style="height: 400px; padding-top: 0.5em;" src="media/images/moorings.png" />
+               <p class="small-comment" style="text-align: center">image source: JASCO Applied Sciences</p>
+            </div>
+            <div class="column-75">
+               <ul style="margin-bottom: 0; padding-bottom: 0;">
+                  <li class="slide" id="pam-li-1">PAM is non-invasive unlike GPS tagging</li>
+                  <li class="slide" id="pam-li-2">PAM is less susceptible to harsh weather conditions compared to visual surveys</li>
+                  <li class="slide" id="pam-li-3">PAM is often carried out using moored recording devices</li>
+                  <li class="slide" id="pam-li-4">PAM recording devices are typically deployed for months</li>
+                  <li class="slide" id="pam-li-5">Collections of data collected via PAM are very large</li>
+                  <li class="slide" id="pam-li-6">Complete human analysis of PAM data sets is not feasible</li>
+               </ul>
+            </div>
+         </div>
+      </section>
+
+      <!-- DSC Research -->
+      <section class="slide no-header" id="dcs">
+         <h2>Detection and classification systems (DCS)</h2>
+         <p>Large collections of acoustic data collected via PAM has led to increased research into detection and classification systems (DCS).</p>
+         <div class="row slide" id="dcs-info" style="padding-bottom: 0">
+            <p>From a machine learning perspective a DCS is simply hierarchical model...</p>
+            <ol style="margin-top: -.5em;">
+               <li>
+                  <span style="color: #ef8376;">detection &#8594;</span>
+                  A binary classifier determining if a signal of interest is present
+               </li>
+               <li>
+                  <span style="color: #ef8376;">classification &#8594;</span>
+                  A multi-class classifier for distinguishing between sources
+               </li>
+            </ol>
+         </div>
+         <div class="row slide" id="dcs-bubbles" style="margin-top: -1em;">
+            <div class="column-33">
+               <div id="bubblechart" style="margin: -.5em auto; padding: 0 auto;"></div>
+               <p class="small-comment" style="text-align: center; margin-left: 3em; margin-top: -1em;">image source: Wikipedia.org</p>
+            </div>
+            <div class="column-67">
+               <p style="color: #ef8376;">Problem statement:</p>
+               <p style="padding-top: -1em;">
+                  We are interested in detecting the presence/absence of three species of endangered baleen whales (<em>mysticetes</em>)
+               </p>
+               <ul style="margin-top: -.5em;">
+                  <li>Blue whales (<em>Balaenoptera musculus</em>)</li>
+                  <li>Fin whales (<em>Balaenoptera physalus</em>)</li>
+                  <li>Sei whales (<em>Balaenoptera borealis</em>)</li>
+               </ul>
+            </div>
+         </div>
+      </section>
+
+      <!-- Methodology -->
+      <section class="slide no-header" id="methodology">
+         <h2>Methodology</h2>
+         <p>
+            Traditionally, the algorithms used to develop a DCS for marine mammal vocalizations are derived from the properties of the signals of interest.
+         </p>
+         <p style="text-align: center; color: #ef8376;">
+            These systems cannot generalize easily to new signals of interest.
+         </p>
+         <p class="slide" id="methodology-p">
+            We employ Convolutional Neural Networks (CNNs) to develop a DCS for endangered baleen whales vocalizations
+         </p>
+         <ul style="margin-top:-.5em;">
+            <li class="slide" id="methodology-li-2">
+               The CNNs are trained on spectrograms computed using a Short-time Fourier Transform (STFT)
+            </li>
+            <li class="slide" id="methodology-li-3">
+               We include non-biological and ambient noise as classes in order to effectively detect the presence/absence of whales
+               <img style="width: 100%; padding-top: 1em;" src="media/images/species_grid_WIDE.png" />
+            </li>
+         </ul>
+      </section>
+
+      <!-- Novel Representation-->
+      <section class="slide" id="novel-representation">
+         <h2>Novel representation</h2>
+         <ul>
+            <li class="slide" id="spectrograms-2-li-1">
+               In order to generate a spectrogram, one has to decide on a set of parameters to provide to the STFT
+            </li>
+            <li class="slide" id="spectrograms-2-li-2">
+               In practice, marine biologists will often use different parameters depending on the species they are interested in
+            </li>
+            <li class="slide" id="spectrograms-2-li-3">
+               To exploit the strategy used by experts during annotation, we employ a novel representation, by:
+               <ol class="sublist">
+                  <li><span style="color: #ef8376;">Generating</span> multiple spectrograms using different STFT parameters</li>
+                  <li><span style="color: #ef8376;">Interpolating</span> the spectrograms such that they share the same dimensions</li>
+                  <li><span style="color: #ef8376;">Stacking</span> the interpolated spectrograms to form a multi-channel tensor</li>
+               </ol>
+               <img style="width: 75%; padding-top: 1em;" src="media/images/novel_repr.png" />
+            </li>
+         </ul>
+
+      </section>
+
+      <!-- Acoustic Recordings -->
+      <section class="slide" id="recordings">
+         <h2>Acoustic recordings</h2>
+         <div class="row" style="margin-top: -.5em;">
+            <div class="column-40" style="margin: auto;">
+               <img src="media/images/deployment_map_TALL.png" style="width: 90%; margin-right: 9%; padding-top: 1.25em;" />
+            </div>
+            <div class="column-60">
+               <p>
+                  The acoustic recordings used in the development of our DCS were ...
+               </p>
+               <ul>
+                  <li class="slide" id="recordings-li-1">
+                     Collected by JASCO Applied Sciences at a 8kHz sampling rate
+                  </li>
+                  <li class="slide" id="recordings-li-1">
+                     Analyzed by marine biologists producing annotations in the form of bounding boxes
+                  </li>
+                  <li class="slide" id="recordings-li-1">
+                     Distributions of the annotations per data set
+                     <table class="mnml-table-2" style="font-size: 0.8em; margin-top: 0.5em;">
+                        <tr class="mnml-table-2-line">
+                           <td>Source</th>
+                           <td>Training</th>
+                           <td>Validation</th>
+                           <td>Test</th>
+                        </tr>
+                        <tr class="mnml-table-2">
+                           <td style="text-align: left">Blue whale</td>
+                           <td style="text-align: center">2692</td>
+                           <td style="text-align: center">601</td>
+                           <td style="text-align: center">574</td>
+                        </tr>
+                        <tr class="mnml-table-2">
+                           <td style="text-align: left">Fin whale</td>
+                           <td style="text-align: center">15,118</td>
+                           <td style="text-align: center">3244</td>
+                           <td style="text-align: center">3272</td>
+                        </tr>
+                        <tr class="mnml-table-2">
+                           <td style="text-align: left">Sei whale</td>
+                           <td style="text-align: center">1701</td>
+                           <td style="text-align: center">332</td>
+                           <td style="text-align: center">383</td>
+                        </tr>
+                        <tr class="mnml-table-2">
+                           <td style="text-align: left">Non-biological</td>
+                           <td style="text-align: center">2078</td>
+                           <td style="text-align: center">449</td>
+                           <td style="text-align: center">398</td>
+                        </tr>
+                     </table>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </section>
+
+      <!-- Training Details -->
+      <section class="slide" id="training-details-1">
+         <h2>Training details</h2>
+         <ul>
+            <li class="slide" id="training-details-1-li-1">The data used in training/testing the classifiers were generated in the following way:
+               <ol class="sublist">
+                  <li>Each annotation was centred within a 30 second excerpt from the original recording</li>
+                  <li>A 10 second sample containing the annotation was randomly selected from the excerpt</li>
+                  <li>A spectrogram was produced corresponding to the CNN that was being trained</li>
+               </ol>
+            </li>
+            <li class="slide" id="training-details-1-li-2">
+               We use the VGG-19 <a href="#references">[3]</a> CNN architecture implemented in PyTorch <a href="#references">[2]</a>
+            </li>
+            <li class="slide" id="training-details-1-li-3">
+               There were four different CNNs corresponding to the data used in training
+               <ol class="sublist">
+                  <li>Three trained on spectrograms with FFT window lengths of 256, 2048, and 16384 samples</li>
+                  <li>One trained on a 3-channel version of the novel representation</li>
+               </ol>
+            </li>
+            <li class="slide" id="training-details-1-li-4">
+               Stochastic Gradient Descent (SGD) was used to optimize a cross-entropy loss
+            </li>
+            <li class="slide" id="training-details-1-li-5">
+                Other parameters: <span style="font-style: italic;">learning rate = 0.01, batch size = 128, training epochs = 100</span>
+            </li>
+         </ul>
+      </section>
+
+      <!-- Results -->
+      <section class="slide" id="results-1">
+         <h2>Experimental results</h2>
+         <table class="mnml-table">
+            <tr>
+               <th></th>
+               <th>NFFT</th>
+               <th>Accuracy</th>
+               <th>Precision</th>
+               <th>Recall</th>
+               <th>F-1 Score</th>
+            </tr>
+            <tr class="mnml-table-line">
+               <td>3-channels (Hz)</td>
+               <td style="text-align: center">-</td>
+               <td>0.961 (±0.017)</td>
+               <td>0.906 (±0.044)</td>
+               <td>0.892 (±0.049)</td>
+               <td>0.899 (±0.041)</td>
+            </tr>
+            <tr>
+               <td rowspan="3">1-channel (Hz)</td>
+               <td style="text-align: center">256</td>
+               <td>0.914 (±0.024)</td>
+               <td>0.790 (±0.048)</td>
+               <td>0.771 (±0.070)</td>
+               <td>0.780 (±0.053)</td>
+            </tr>
+            <tr>
+               <td style="text-align: center">2048</td>
+               <td>0.959 (±0.019)</td>
+               <td>0.899 (±0.041)</td>
+               <td>0.889 (±0.048)</td>
+               <td>0.894 (±0.039)</td>
+            </tr>
+            <tr>
+               <td style="text-align: center">16384</td>
+               <td>0.951 (±0.017)</td>
+               <td>0.871 (±0.037)</td>
+               <td>0.878 (±0.038)</td>
+               <td>0.875 (±0.028)</td>
+            </tr>
+         </table>
+      </section>
+      <section class="slide" id="results-3">
+         <h2 class="section-continued">Experimental results (cont.)</h2>
+         <img style="width: 80%; margin-top: 25px;" src="media/images/vgg_confusion_matrices.png" />
+      </section>
+
+      <!-- Generalization -->
+      <section class="slide" id="generalization-1">
+         <h2>Generalization to other species</h2>
+         <p>How can we test how well our CNN is able to generalize to other sources of interest?</p>
+         <ul class="slide" id="generalization-1-ul">
+            <li>Transfer learning using additional instances containing humpback calls</li>
+            <li>Freeze the feature extraction layers of the VGG-19 model from before</li>
+            <li>Re-train the last two layers using the original training set + 2,100 humpback calls</li>
+            <li>Hold out 450 humpback calls for validation and 450 for testing</li>
+            <li>Limit the training to only 10 epochs using the same training details as before</li>
+         </ul>
+      </section>
+      <section class="slide" id="generalization-2">
+         <h2 class="section-continued">Generalization to other species (cont.)</h2>
+         <div class="row">
+            <div class="column-67">
+               <img style="width: 80%; padding-top: 0.5em; margin-left: 0" src="media/images/humpback_confusion_matrix.png" />
+            </div>
+            <div class="column-33" style="">
+               <p>Accuracy = 0.948</p>
+               <p>Precision = 0.884</p>
+               <p>Recall = 0.871</p>
+               <p>F-1 Score = 0.877</p>
+            </div>
+         </div>
+      </section>
+      <section class="slide" id="generalization-3">
+         <h2 class="section-continued">Generalization to other species (cont.)</h2>
+         <img style="width: 67%;" src="media/images/tsne_embeddings.png" />
+         <p style="font-size: 0.8em; text-align: center;">2-dimensional t-SNE <a href="#references">[1]</a> embeddings of the final frozen layer before training</p>
+      </section>
+
+      <!-- Acknowledgements -->
+      <section class="slide no-top-margin" id="acknowledgements">
+         <div class="slide-content">
+            <h3 id="thanks-to">
+               Thanks to...
+            </h3>
+            <ul>
+               <li>JASCO Applied Sciences and the NSERC Engage program for funding this work</li>
+               <li>Dr. Bruce Martin, Katie Kowarski, and Briand Gaudet of JASCO</li>
+               <li>My PhD supervisor Dr. Stan Matwin for his continued encouragement and support</li>
+            </ul>
+         </div>
+      </section>
+
+      <!-- The End-->
+      <section class="slide" id="the-end">
+         <div class="slide-content">
+            <h1 align="center">Thank you for listening!</h1>
+            <br /><br /><br />
+            <table align="center">
+               <tr>
+                  <td class="logo-img" style="padding-right: 40px"><img height="50" src="media/images/dallogo.png" /></td>
+                  <td class="logo-img"><img height="80" src="media/images/bigdatalogo.png" /></td>
+                  <td class="logo-img" style="padding-top: 20px"><img height="80" src="media/images/jascologo.png" /></td>
+                  <td class="logo-img" style="padding-bottom: 10px"><img height="95" src="media/images/nserclogo.png" /></td>
+               </tr>
+            </table>
+         </div>
+      </section>
+
+      <!-- References -->
+      <section class="slide" id="references">
+         <h2>References</h2>
+         <div id="refs" style="font-size: 0.9em; padding-top: 0">
+            <ol id="refs-list">
+               <li>
+                  <span id="ref-title">Visualizing data using t-SNE</span><br />
+                  <span id="ref-author">L.v.d. Maaten and G. Hinton</span><br />
+                  <span id="ref-journal">Journal of machine learning research 9(Nov), 2579–2605 (2008)</span>
+               </li>
+               <li>
+                  <span id="ref-title">Automatic differentiation in PyTorch</span><br />
+                  <span id="ref-author">A. Paszke, S. Gross, S. Chintala, G. Chanan, E. Yang, Z. DeVito, Z. Lin, A. Desmaison, L. Antiga, and A. Lerer</span><br />
+                  <span id="ref-journal"> In NIPS-W (2017)</span>
+               </li>
+               <li>
+                  <span id="ref-title">Very deep convolutional networks for large-scale image recognition</span><br />
+                  <span id="ref-author">K. Simonyan and A. Zisserman</span><br />
+                  <span id="ref-journal">arXiv preprint arXiv:1409.1556 (2014)</span>
+               </li>
+            </ol>
+         </div>
+      </section>
+
+   <!-- Close the deck-container -->
+   </div>
+
+   <!-- Load resources -->
+   <script src="core/deck.core.js"></script>
+   <script src="extensions/menu/deck.menu.js"></script>
+   <script src="extensions/goto/deck.goto.js"></script>
+   <script src="extensions/status/deck.status.js"></script>
+   <script src="extensions/scale/deck.scale.js"></script>
+   <script src="media/bubble_chart.js"></script>
+
+   <!-- Initialize the deck -->
+   <script type="text/javascript">
+      $(function() {
+         $.extend(true, $.deck.defaults, {
+            selectors: {
+               statusCurrent: '.deck-status-current',
+               statusTotal: '.deck-status-total'
+            },
+            countNested: false
+         });
+         $.deck('.slide');
+         $.deck('enableScale')
+      });
+   </script>
+
+   <!-- Draw the bubble-chart -->
+   <script type="text/javascript">
+      drawBubbles();
+   </script>
+
+</body>
+
+</html>
