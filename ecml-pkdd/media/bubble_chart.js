@@ -1,8 +1,8 @@
 function drawBubbles() {
 
    var container = d3.select(".deck-container").node();
-   var width = container.getBoundingClientRect().width * 0.33;
-   var height = container.getBoundingClientRect().height * 0.45;
+   var width = container.getBoundingClientRect().width * 0.5;
+   var height = container.getBoundingClientRect().height * 0.6;
 
    var center = {
       x: width / 2,
@@ -16,7 +16,7 @@ function drawBubbles() {
       .append("g");
 
    var defs = svg.append("defs");
-   var radiusScale = d3.scalePow().domain([1, 1]).exponent(0.5).range([1, 100]);
+   var radiusScale = d3.scalePow().domain([1, 1]).exponent(0.5).range([1, 80]);
    var forceStrength = 0.03;
    var simulation = d3.forceSimulation()
       .velocityDecay(0.2)

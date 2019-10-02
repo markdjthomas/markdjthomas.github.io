@@ -37,9 +37,21 @@
       <!-- Title -->
       <section class="slide" id="title">
          <br />
-	 <p id="sup-title">ECML-PKDD<br />W&uuml;rzburg, Germany</p>
+         <p id="sup-title">ECML/PKDD &mdash; Sept. 19, 2019<br />W&uuml;rzburg, Germany</p>
+         <br />
          <h1>Classifying baleen whale vocalizations using convolutional neural networks and a novel acoustic representation</h1>
-         <p id="title-author">Mark Thomas<br /><span id="title-date">Sept. 19, 2019</span></p>
+         <p id="title-author">
+            <u>Mark Thomas</u><sup>1,2</sup>,
+            Bruce Martin<sup>2</sup>,
+            Katie Kowarski<sup>2</sup>,
+            Briand Gaudet<sup>2</sup>,
+            and Stan Matwin<sup>1,3</sup>
+         </p>
+         <p id="title-inst">
+            <sup>1</sup> Dalhousie University Faculty of Computer Science, Halifax, Canada<br />
+            <sup>2</sup> JASCO Applied Sciences, Dartmouth, Canada<br />
+            <sup>3</sup> Institute of Computer Science Polish Academy of Sciences, Warsaw, Poland
+         </p>
       </section>
 
       <!-- Outline -->
@@ -65,7 +77,7 @@
          <div class="row">
             <div class="column-25">
                <img style="height: 400px; padding-top: 0.5em;" src="media/images/moorings.png" />
-               <p class="small-comment" style="text-align: center">image source: JASCO Applied Sciences</p>
+               <p class="small-comment" style="text-align: center; padding-top: 1em;">src: JASCO Applied Sciences</p>
             </div>
             <div class="column-75">
                <ul style="margin-bottom: 0; padding-bottom: 0;">
@@ -88,22 +100,24 @@
             <p>From a machine learning perspective a DCS is simply hierarchical model...</p>
             <ol>
                <li>
-                  <span style="color: #ef8376;">detection &#8594;</span>
+                  <span style="font-weight: 700; color: #ef8376;">detection &#8594;</span>
                   A binary classifier determining if a signal of interest is present
                </li>
                <li>
-                  <span style="color: #ef8376;">classification &#8594;</span>
+                  <span style="font-weight: 700; color: #ef8376;">classification &#8594;</span>
                   A multi-class classifier for distinguishing between sources
                </li>
             </ol>
          </div>
          <div class="row slide" id="dcs-bubbles" style="margin-top: -1em;">
             <div class="column-33">
-               <div id="bubblechart" style="margin: 0 auto; padding: 0 auto;"></div>
-               <p class="small-comment" style="text-align: center; margin-left: 3em; margin-top: -1em;">image source: Wikipedia.org</p>
+               <div id="bubblechart" style="margin: 2em auto 0 10%; padding: 0 auto;"></div>
+               <br style="font-size: 0.1em"/>
+               <p class="small-comment" style="text-align: center; margin: -3em 0;">src: Wikipedia</p>
             </div>
             <div class="column-67">
-               <p style="color: #ef8376;">Problem statement:</p>
+               <br />
+               <p style="font-weight: 700; color: #ef8376;">Problem statement:</p>
                <p style="padding-top: -1em;">
                   We are interested in detecting the presence/absence of three species of endangered baleen whales (<em>mysticetes</em>)
                </p>
@@ -213,13 +227,13 @@
          <p>To exploit the strategy used by experts during annotation, we employ a novel representation, by:</p>
          <ol>
             <li class="slide" id="novel-representation-li-1">
-               <span style="color: #ef8376;">Generating</span> multiple spectrograms using different STFT parameters
+               <span style="font-weight: 700; color: #ef8376;">Generating</span> multiple spectrograms using different STFT parameters
             </li>
             <li class="slide" id="novel-representation-li-2">
-               <span style="color: #ef8376;">Interpolating</span> the spectrograms such that they share the same dimensions
+               <span style="font-weight: 700; color: #ef8376;">Interpolating</span> the spectrograms such that they share the same dimensions
             </li>
             <li class="slide" id="novel-representation-li-3">
-               <span style="color: #ef8376;">Stacking</span> the interpolated spectrograms to form a multi-channel tensor
+               <span style="font-weight: 700; color: #ef8376;">Stacking</span> the interpolated spectrograms to form a multi-channel tensor
             </li>
          </ol>
          <img class="slide" id="novel-representation-img" style="width: 90%; padding-top: 1em;" src="media/images/novel_repr.png" />
@@ -242,7 +256,8 @@
                   </li>
                   <li>
                      Analyzed by marine biologists producing annotations pertaining to whale vocalizations and other sources
-                     <table class="mnml-table" style="font-size: 0.8em;">
+                     <br />
+                     <table class="mnml-table" style="font-size: 0.95em; margin-top: 1em;">
                         <tr>
                            <th>Source</th>
                            <th>Label</th>
@@ -332,7 +347,7 @@
       <section class="slide" id="results-1">
          <h2>Experimental results</h2>
          <h5 style="margin: 0 auto; padding: 0 auto; text-align: center;">ResNet-50 Performance</h3>
-            <table class="mnml-table">
+            <table class="mnml-table" style="font-size: 0.9em;">
                <tr>
                   <th></th>
                   <th>NFFT</th>
@@ -382,7 +397,7 @@
             </table>
             <br /><br />
             <h5 style="margin: -1em auto 0 auto; padding: -1em auto 0 auto; text-align: center;">VGG-19 Performance</h3>
-               <table class="mnml-table">
+               <table class="mnml-table" style="font-size: 0.9em;">
                   <tr>
                      <th></th>
                      <th>NFFT</th>
@@ -433,11 +448,11 @@
       </section>
       <section class="slide" id="results-2">
          <h2 class="section-continued">Experimental results (cont.)</h2>
-         <img style="width: 80%; margin-top: 25px;" src="media/images/resnet_confusion_matrices.png" />
+         <img style="width: 75%; margin-top: 25px;" src="media/images/resnet_confusion_matrices.png" />
       </section>
       <section class="slide" id="results-3">
          <h2 class="section-continued">Experimental results (cont.)</h2>
-         <img style="width: 80%; margin-top: 25px;" src="media/images/vgg_confusion_matrices.png" />
+         <img style="width: 75%; margin-top: 25px;" src="media/images/vgg_confusion_matrices.png" />
       </section>
 
       <!-- Generalization -->
@@ -456,7 +471,7 @@
          <h2 class="section-continued">Generalization to other species (cont.)</h2>
          <div class="row">
             <div class="column-67">
-               <img style="width: 80%; margin-left: 0" src="media/images/humpback_confusion_matrix.png" />
+               <img style="width: 75%; margin-left: 0" src="media/images/humpback_confusion_matrix.png" />
             </div>
             <div class="column-33" style="">
                <p>Accuracy = 0.948</p>
@@ -468,21 +483,32 @@
       </section>
       <section class="slide" id="generalization-3">
          <h2 class="section-continued">Generalization to other species (cont.)</h2>
-         <img style="width: 67%;" src="media/images/tsne_embeddings.png" />
-         <p style="font-size: 0.8em; text-align: center;">2-dimensional t-SNE <a href="#references">[4]</a> embeddings of the final frozen layer before training</p>
+         <img style="width: 50%;" src="media/images/tsne_embeddings.png" />
+         <p style="text-align: center;">2-dimensional t-SNE <a href="#references">[4]</a> embeddings of the final frozen layer before training</p>
+      </section>
+
+      <!-- Future Work -->
+      <section class="slide" id="future-work">
+         <h2>Future Work</h2>
+         <ul>
+            <li class="slide" id="future-work-li-1">Detection in both frequency and time using Region-based CNNs</li>
+            <li class="slide" id="future-work-li-2">Weak/semi/self-supervision for overcoming the partially labelled data problem</li>
+            <li class="slide" id="future-work-li-3">Unsupervised learning of acoustic signatures (e.g., own-ship noise management)</li>
+            <li class="slide" id="future-work-li-4">Interpretability methods for CNNs trained on acoustic data</li>
+         </ul>
       </section>
 
       <!-- The End-->
       <section class="slide" id="the-end">
          <div class="slide-content">
-            <h1 align="center">Thank you for listening!</h1>
-            <br /><br /><br />
+            <h1 style="margin-top: 20%; text-align: center;">Thank you!</h1>
+            <br /><br />
             <table align="center">
                <tr>
-                  <td class="logo-img" style="padding-right: 40px"><img height="50" src="media/images/dallogo.png" /></td>
-                  <td class="logo-img"><img height="80" src="media/images/bigdatalogo.png" /></td>
-                  <td class="logo-img" style="padding-top: 20px"><img height="80" src="media/images/jascologo.png" /></td>
-                  <td class="logo-img" style="padding-bottom: 10px"><img height="95" src="media/images/nserclogo.png" /></td>
+                  <td class="logo-img" style="padding-right: 40px"><img height="60" src="media/images/dallogo.png" /></td>
+                  <td class="logo-img"><img height="90" src="media/images/bigdatalogo.png" /></td>
+                  <td class="logo-img" style="padding-top: 20px"><img height="90" src="media/images/jascologo.png" /></td>
+                  <td class="logo-img" style="padding-bottom: 10px"><img height="105" src="media/images/nserclogo.png" /></td>
                </tr>
             </table>
          </div>
@@ -491,7 +517,7 @@
       <!-- References -->
       <section class="slide" id="references">
          <h2>References</h2>
-         <div id="refs" style="font-size: 0.67em; padding-top: 0">
+         <div id="refs" style="font-size: 0.75em; padding-top: 0">
             <ol id="refs-list">
                <li>
                   <span id="ref-title">Deep residual learning for image recognition</span><br />

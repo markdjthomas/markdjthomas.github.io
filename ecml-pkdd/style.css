@@ -1,4 +1,9 @@
 /* ======================= custom styles ======================= */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html, body {
 	background: url(media/harbour-50p.jpg);
 	background-repeat: no-repeat;
@@ -7,25 +12,29 @@ html, body {
 
 h1 {
 	color: #ef8376;
-	font-size: 2.25em;
+	font-size: 1.75em;
 	font-weight: bold;
 }
 
 h2 {
   color: #ef8376;
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: bold;
   border-bottom: solid 2px #3f3f3f;
 }
 
 h3 {
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 h4 {
   font-size: 1em;
   font-weight: bold;
+}
+
+p, ul, ol {
+	font-size: 0.8em;
 }
 
 img, iframe, video {
@@ -38,7 +47,7 @@ em {
 }
 
 li {
-  padding: 0.25em 0;
+  padding: 0.5em 0;
   vertical-align: middle;
 }
 
@@ -66,12 +75,20 @@ a:hover	{
 	color: #ef8376;
 }
 
+sup {
+	font-size: 0.667em;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 2px solid black;
+  }​
+
 .column-50 {
   float: left;
   width: 50%;
   height: 100%
 }
-
 
 .column-75 {
   float: left;
@@ -120,7 +137,8 @@ a:hover	{
    font-size: 0.75em;
    font-weight: bold;
 	font-style: italic;
-	padding-top: 2em;
+	margin-top: 50px;
+   padding: 0 50px;
    border-bottom: solid 2px #3f3f3f;
 	text-align: right;
 }
@@ -169,13 +187,13 @@ a:hover	{
 }
 
 #title-author {
-	padding-top: 2em;
+	padding-top: 3em;
 	color: #3f3f3f;
-	font-size: 1.25em;
+	font-size: 0.85em;
 	font-weight: 500
 }
 
-#title-date {
+#title-inst {
 	color: #3f3f3f;
 	font-size: 0.75em;
 	font-weight: 350
@@ -194,7 +212,6 @@ a:hover	{
     counter-reset: list;
 	 padding-left: 0;
 	 display: table;
-
 }
 
 #refs-list > li {
@@ -212,34 +229,35 @@ a:hover	{
 
 #ref-title {
 	color: #ef8376;
-	font-weight: 110%;
+	font-weight: 600;
 }
 
 #ref-author {
-	font-size: 0.75em;
+	font-size: 0.9em;
 	font-weight: 500;
 }
 
 #ref-journal {
-	font-size: 0.75em;
+	font-size: 0.8em;
 	color: #3f3f3f;
 	font-style: italic;
 }
 
 /* ======================= deck.js styles ======================= */
 .deck-container {
-  font-size: 16px;
   line-height: 1.25;
   color: #3f3f3f;
   background-color: transparent;
-  max-width: 1200px;
+  max-width: 1720px;
+  max-height: 1080px;
   padding-left: auto;
   padding-right: auto;
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 1.75em;
+  font-family: "Consolas", sans-serif;
+  font-size: 2.33em;
 }
 
 .deck-container > .slide {
+  margin-top: 50px;
   padding: 0 50px;
 }
 
@@ -251,7 +269,7 @@ a:hover	{
 
 .slide-content {
 	position: relative;
-	margin-top: 25%;
+	margin-top: 0;
 }
 
 .slide .deck-before, .slide .deck-previous {
@@ -283,12 +301,13 @@ a:hover	{
 .deck-status {
 	font-size: 0.667em;
 	color: #3f3f3f;
-   margin: 0 100px 50px 0em;
+	text-align: right;
+   margin: 0em 150px 50px 0em;
  	font-weight: 500;
 }
 
 .some-top-margin {
-	margin-top: -20%;
+	margin-top: 10%;
 }
 
 .nvd3-top-margin {

@@ -1,0 +1,63 @@
+body, html {
+   margin: 2% auto;
+   font-family: Menlo !important;
+}
+
+h1 {
+   padding: .5em 0 0 0;
+   font-size: 32px;
+   font-weight: 100;
+   text-align: center;
+}
+
+h2 {
+   font-size: 28px;
+}
+
+h3 {
+   padding-top: 1em;
+   font-size: 18;
+   font-weight: 200;
+}
+h4 {
+   font-size: 18;
+   text-align: center;
+   margin: 0.5em auto;
+}
+
+p {
+   font-size: 14;
+   font-weight: 100;
+}
+
+img {
+   display: block;
+   margin: auto;
+}
+
+a {
+   color: black;
+}
+
+a:active,
+a:hover {
+   text-decoration: none;
+   color: blue;
+}
+
+ul.social-icons {
+   display: block;
+   margin: 0 auto;
+   text-align: center;
+}
+
+ul.social-icons > li {
+   display: inline-block;
+   padding-right: 10px;
+}
+
+#profile-img {
+   width: 75%;
+   border-radius: 50%;
+   margin-bottom: 1em;
+}
