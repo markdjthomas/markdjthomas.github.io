@@ -61,11 +61,12 @@ a:hover {
    margin-bottom: 1em;
 }
 
-@media (min-width: 1000px){
+@media (min-width: 1024px){
    #contact-side {
       position: fixed;
       max-width: 25%;
    }
+
    #profile-img {
       width: 66.7%;
       border-radius: 50%;
@@ -74,17 +75,16 @@ a:hover {
    }
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1023px){
+
+   #content-side {
+      max-width: 100%;
+   }
+
    #profile-img {
       width: 50%;
       border-radius: 50%;
       margin-bottom: 1em;
       margin-top: 1em;
-   }
-}
-
-@media all and (max-width: 768px){
-   p {
-      font-size: 18;
    }
 }
