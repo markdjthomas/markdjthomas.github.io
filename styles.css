@@ -1,12 +1,12 @@
 body, html {
    margin: 15px 0;
-   font-family: Menlo !important;
+   font-family: "Courier" !important;
 }
 
 h1 {
    padding: .5em 0 0 0;
    font-size: 32px;
-   font-weight: 100;
+   font-weight: 400;
    text-align: center;
 }
 
@@ -29,7 +29,7 @@ p {
    margin-top: .25em;
    margin-bottom: .25em;
    font-size: 14;
-   font-weight: 100;
+   font-weight: 400;
 }
 
 img {
