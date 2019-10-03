@@ -16,7 +16,7 @@ h2 {
 
 h3 {
    margin-top: 2em;
-   font-size: 18;
+   font-size: 20;
    font-weight: 200;
 }
 h4 {
@@ -77,9 +77,6 @@ a:hover {
 
 @media (max-width: 1023px){
 
-   #content-side {
-      max-width: 100%;
-   }
 
    #profile-img {
       width: 50%;
