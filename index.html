@@ -1,21 +1,20 @@
 <html>
-
 <head>
    <title>Mark Thomas</title>
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
-   <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/brands.js" crossorigin="anonymous"></script>
-   <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/fontawesome.js" crossorigin="anonymous"></script>
+   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="styles.css" type="text/css">
-
 </head>
-
 <body>
 
    <div class="container">
       <div class="row">
-         <div class="col-3">
+
+         <!-- CONTACT SIDE -->
+         <div class="col-lg-3">
+            <div class="col-lg-12" id="contact-side">
             <img id="profile-img" src="me.jpg" align="center"/>
             <h1>Mark Thomas</h1>
             <p style="text-align: center;">
@@ -24,27 +23,37 @@
             <p style="font-size: 10; text-align: center; padding-top: 1em;">
                mark [dot] thomas @ dal [dot] ca
             </p>
-            <ul class="social-icons">
-               <li>
-                  <a href="https://github.com/markdjthomas"><i class="fab fa-github fa-lg"></i></a>
-               </li>
-               <li>
-                  <a href="https://www.linkedin.com/in/markdjthomas"><i class="fab fa-linkedin fa-lg"></i></a>
-               </li>
-               <li>
-               </li>
-            </ul>
+            <div class="social-icons-parent">
+               <a class="social-icon" href="https://github.com/markdjthomas"><i class="fab fa-github fa-lg"></i></a>
+               <a class="social-icon" href="https://www.linkedin.com/in/markdjthomas"><i class="fab fa-linkedin fa-lg"></i></a>
+               <a class="social-icon" href="https://scholar.google.ca/citations?user=vzkKZmkAAAAJ&hl=en"><i class="fas fa-graduation-cap fa-lg"></i></a>
+            </div>
+            </div>
          </div>
-         <div class="col">
+
+         <!-- CONTENT SIDE -->
+         <div class="col-lg-8 offset-lg-1">
             <hr style="border-width: 1px; border-color: blue;"/>
-            <p>
-               I am third-year PhD candidate in computer science @ Dalhousie University under the supervision of <a href="https://web.cs.dal.ca/~stan/">Stan Matwin</a>. My main interests are in applying deep learning to the area of bioacoustics. Specifically, I work on algorithms to detect the vocalizations of endangered baleen whales within acoustic recordings.
+            <p style="padding-bottom: 0.5em;">
+               I am third-year PhD candidate in computer science @ Dalhousie University under the supervision of <a href="https://web.cs.dal.ca/~stan/">Stan Matwin</a>. My main interests are in applying deep learning to the area of bioacoustics. Specifically, I work on algorithms for detecting endangered baleen whale vocalizations within acoustic recordings.
             </p>
-            <p>
-               I hold a MSc and BSc from Acadia University. During my MSc, I was supervised by <a href="https://sites.google.com/site/drpritamranjan/">Pritam Ranjan</a> and <a href="http://www.acadiau.ca/~hteisman/">Holger Teismann</a> and worked on Bayesian optimization using Gaussian processes.
+            <p style="padding-bottom: 0.5em;">
+               I hold a MSc and BSc from Acadia University. During my MSc, I was supervised by <a href="https://sites.google.com/site/drpritamranjan/">Pritam Ranjan</a> and <a href="http://www.acadiau.ca/~hteisman/">Holger Teismann</a> and worked on Bayesian optimization.
+            </p>
+            <p style="padding-bottom: 0.5em;">
+               I also am the co-founder and organizer of <a href="https://dartmouthrunners.com">Dartmouth Runners <i class="fas fa-bolt"></i></a>: a free social running club on the <a href="https://en.wikipedia.org/wiki/Dartmouth,_Nova_Scotia">Darkside</a>. Check us out and join us for a run!
             </p>
 
-            <h3>Recent Research / Publications</h3>
+            <h3>News!</h3>
+            <p>
+               In early December I will be presenting two abstracts at the 178th Meeting of the Acoustical Society of America (ASA) in San Diego, California.
+            </p>
+            <p>
+               Immediately after the ASA Meeting, I will be attending NeurIPS 2019 in Vancouver, BC and presenting a poster at the AI for Social Good Workshop.
+            </p>
+
+            <!-- PUBLICATIONS -->
+            <h3>Recent Publications</h3>
             <ul>
                <li>
                   <p>
@@ -58,9 +67,6 @@
                      <span style="font-style: italic;">Joint European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML/PKDD 2019).</span>
                      <a href="https://arxiv.org/pdf/1907.13188.pdf">[arXiv]</a>
                   </p>
-                  <p style="font-size: 12px; font-style: italic; text-align: right; margin-top: -1em;">
-                     This work was also presented as a poster at the <a href="https://dlrlsummerschool.ca">CIFAR Deep Learning Summer School</a> and OceanPredict'19
-                  </p>
                </li>
                <li>
                   <p>
@@ -70,24 +76,43 @@
                </li>
             </ul>
 
-            <h3>Upcoming</h3>
+            <!-- EDUCATION -->
+            <h3>Education</h3>
             <ul>
                <li>
                   <p>
-                     In early December 2019, I will be presenting two abstracts at the 178th Meeting of the Acoustical Society of America (ASA) in San Diego, California.
+                     PhD: Computer Science, Dalhousie University (2017 - exp. 2021)
                   </p>
                </li>
                <li>
                   <p>
-                     Immediately after the ASA Meeting, I will be attending NeurIPS 2019 in Vancouver, BC and presenting a poster at the AI for Social Good Workshop.
+                     MSc: Mathematics & Statistics, Acadia University (2013 - 2015)
+                  </p>
+               </li>
+               <li>
+                  <p>
+                     BSc: Mathematics & Statistics and Economics, Acadia University (2009 - 2013)
                   </p>
                </li>
             </ul>
 
+            <!-- WORK EXPERIENCE -->
+            <h3>Work Experience</h3>
+            <ul>
+               <li>
+                  <p>
+                     Intern Machine Learning Scientist @ JASCO Applied Sciences (Jan 2018 - Present)
+                  </p>
+               </li>
+               <li>
+                  <p>
+                     Data Scientist @ Fix.com (May 2015 - Aug 2017)
+                  </p>
+               </li>
+            </ul>
          </div>
       </div>
    </div>
 
 </body>
-
 </html>
