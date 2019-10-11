@@ -62,6 +62,13 @@ a:hover {
    margin-bottom: 1em;
 }
 
+.spinning {
+   -webkit-transform: rotate(360deg);
+           transform: rotate(360deg);
+   -webkit-transition: 0.5s;
+           transition: 0.5s;
+}
+
 @media (min-width: 1024px){
    #contact-side {
       position: fixed;
@@ -77,8 +84,6 @@ a:hover {
 }
 
 @media (max-width: 1023px){
-
-
    #profile-img {
       width: 50%;
       border-radius: 50%;

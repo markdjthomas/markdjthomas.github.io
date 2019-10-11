@@ -22,13 +22,13 @@
             <p style="text-align: center;">
                deep learning for bioacoustics &<br />AI for social good
             </p>
-            <p style="font-size: 10; text-align: center; padding-top: 1em;">
+            <p id="easter" style="font-size: 10; text-align: center; padding-top: 1em;">
                mark [dot] thomas @ dal [dot] ca
             </p>
             <div class="social-icons-parent">
-               <a class="social-icon" href="https://scholar.google.ca/citations?user=vzkKZmkAAAAJ&hl=en"><i class="fas fa-graduation-cap fa-lg"></i></a>
-               <a class="social-icon" href="https://github.com/markdjthomas"><i class="fab fa-github fa-lg"></i></a>
-               <a class="social-icon" href="https://www.linkedin.com/in/markdjthomas"><i class="fab fa-linkedin fa-lg"></i></a>
+               <a class="social-icon" id="scholar" href="https://scholar.google.ca/citations?user=vzkKZmkAAAAJ&hl=en"><i class="fas fa-graduation-cap fa-lg"></i></a>
+               <a class="social-icon" id="github" href="https://github.com/markdjthomas"><i class="fab fa-github fa-lg"></i></a>
+               <a class="social-icon" id="linkedin" href="https://www.linkedin.com/in/markdjthomas"><i class="fab fa-linkedin fa-lg"></i></a>
             </div>
             </div>
          </div>
@@ -116,6 +116,10 @@
          </div>
       </div>
    </div>
+
+<script>
+function getSelectionText(){var e="",t=document.getElementById("profile-img");window.getSelection?e=window.getSelection().toString():document.selection&&"Control"!=document.selection.type&&(e=document.selection.createRange().text),"mark [dot] thomas @ dal [dot] ca"==e&&t.setAttribute("class","spinning")}document.onmouseup=document.onkeyup=document.onselectionchange=function(){getSelectionText()};
+</script>
 
 </body>
 </html>
