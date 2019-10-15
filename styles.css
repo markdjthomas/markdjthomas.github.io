@@ -19,10 +19,16 @@ h3 {
    font-size: 20;
    font-weight: 200;
 }
+
 h4 {
    font-size: 18;
    text-align: center;
    margin: 0.5em 0;
+}
+
+hr {
+   border-width: 2px;
+   border-color: blue;
 }
 
 p {
