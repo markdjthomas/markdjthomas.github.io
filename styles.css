@@ -75,7 +75,31 @@ a:hover {
            transition: 0.5s;
 }
 
+@media (min-width: 480px){
+
+   #profile-img {
+      width: 50%;
+      border-radius: 50%;
+      margin-bottom: 1em;
+      margin-top: 1em;
+   }
+}
+
 @media (min-width: 1024px){
+   #contact-side {
+      position: fixed;
+      max-width: 25%;
+   }
+
+   #profile-img {
+      width: 75%;
+      border-radius: 50%;
+      margin-bottom: 1em;
+      margin-top: 1em;
+   }
+}
+
+@media (min-width: 1366px){
    #contact-side {
       position: fixed;
       max-width: 25%;
@@ -89,9 +113,14 @@ a:hover {
    }
 }
 
-@media (max-width: 1023px){
+@media (min-width: 1920px){
+   #contact-side {
+      position: fixed;
+      max-width: 20%;
+   }
+
    #profile-img {
-      width: 50%;
+      width: 66.7%;
       border-radius: 50%;
       margin-bottom: 1em;
       margin-top: 1em;
