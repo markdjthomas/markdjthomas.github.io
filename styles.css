@@ -75,6 +75,15 @@ a:hover {
            transition: 0.5s;
 }
 
+@media (max-width: 1023px){
+   #profile-img {
+      width: 50%;
+      border-radius: 50%;
+      margin-bottom: 1em;
+      margin-top: 1em;
+   }
+}
+
 @media (min-width: 1024px){
    #contact-side {
       position: fixed;
@@ -83,14 +92,5 @@ a:hover {
    #profile-img {
       width: 66.7%;
       border-radius: 50%;
-   }
-}
-
-@media (max-width: 1023px){
-   #profile-img {
-      width: 50;
-      border-radius: 50%;
-      margin-bottom: 1em;
-      margin-top: 1em;
    }
 }
