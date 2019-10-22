@@ -94,3 +94,14 @@ a:hover {
       border-radius: 50%;
    }
 }
+
+@media (min-width: 1920px){
+   #contact-side {
+      position: fixed;
+      max-width: 20%;
+   }
+   #profile-img {
+      width: 66.7%;
+      border-radius: 50%;
+   }
+}
