@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="description" content="MammalNet (2018-06)">
+   <meta name="author" content="Mark Thomas">
+   <title>AI for Social Good</title>
+   <link rel="shortcut icon" href="favicon.ico" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" media="screen" href="core/deck.core.css">
+   <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+   <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+   <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+   <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+   <link rel="stylesheet" media="screen" href="style.css">
+   <link rel="stylesheet" media="screen" href="transition/fade.css">
+   <link rel="stylesheet" media="print" href="core/print.css">
+
+   <!-- JavaScript -->
+   <script src="vendor/jquery.min.js"></script>
+   <script src="vendor/modernizr.custom.js"></script>
+   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+
+   <!-- Open the deck-container -->
+   <div class="deck-container">
+
+      <!-- Status -->
+      <p class="deck-status">
+         <span class="deck-status-current"></span> of <span class="deck-status-total"></span>
+      </p>
+
+      <!-- Title -->
+      <section class="slide" id="title">
+         <p id="sup-title">MERIDIAN Workshop &mdash; Victoria, BC &mdash; November 21, 2019</p>
+         <h1>
+            Detecting endangered baleen whales within acoustic recordings using R-CNNs<span style="font-size: 0.4em;">, and how I got here...</span>
+         </h1>
+         <div id="title-credit">
+            <p id="title-author">
+               Mark Thomas
+            </p>
+            <p id="title-inst">
+               Dalhousie University & JASCO Applied Sciences
+            <p>
+         </div>
+      </section>
+
+      <!-- Background -->
+      <section class="slide" id="background-1">
+         <h2>Some background...</h2>
+         <div class="slide" id="background-2" style="margin-top: 0">
+            <p style="float: left; margin-top: 0;"><i class="far fa-envelope-open"></i></p>
+            <img style="width: 500px; float: left; margin: auto 25px; border-radius: 10px;" src="media/images/email_from_bruce.png" />
+            <p>
+               In late 2017/early 2018 I started working for JASCO on a <span style="text-decoration: line-through;">detection and</span> classification algorithm using ConvNets.
+            </p>
+         </div>
+         <br />
+         <div class="slide" id="background-3">
+            <br style="width: 100%"/><br style="width: 100%"/><br style="width: 100%"/>
+            <h5 style="margin-bottom: 0;">MammalNet:</h5>
+            <ul style="margin-top: .25em;">
+               <li>no detection involved &#8594; classify vocalizations to different species using pre-extracted contours</li>
+               <li>eleven classes: beluga, blue, bowhead, fin, humpback, minke, right, and sei whales + walruses and bearded seals</li>
+               <li>shallow ConvNet developed in Tensorflow: 3 convolutional layers + 2 fully connected layers</li>
+            </ul>
+         </div>
+         <p class="slide" id="background-4" style="text-align: center; padding-top: 1em;" >
+            &#128564;&nbsp; OK results, but can we cut out the contour detector?
+         </p>
+      </section>
+
+      <section class="slide" id="background-cont-1">
+         <h2 class="section-continued">Some (continued) background...</h2>
+         <h5 style="margin-bottom: 0;">MammalNet v2: more net, fewer mammals</h5>
+         <div class="slide" id="background-cont-2">
+            <ul style="margin-top: 0.5em;">
+               <li>trained on spectrograms instead of extracted contours</li>
+               <li>to do more we need to turn it down from 11</li>
+               <li>
+                  fewer species: blue, fin, and sei whales + non-biological noise & ambient noise examples
+                  <br /><img style="width: 80%; padding: 2em 0 1em 0;" src="media/images/species_grid_WIDE.png" />
+               </li>
+            </ul>
+         </div>
+         <div class="slide" id="background-cont-3">
+            <ul style="margin-top: -0.5em;">
+               <li>
+                  deeper nets: <span id="vgg-deep">VGG-19</span> <a href="#references">[1]</a> and <span id="resnet-deep">ResNet-50</span> <a href="#references">[2]</a> implemented in PyTorch
+               </li>
+               <li>detection can be accomplished by sliding the classifier over a sequence of spectrograms</li>
+               <li>great performance! <span class="small-comment">turns out: reducing your # of classes will have this affect</span></li>
+            </ul>
+         </div>
+         <p class="slide" id="background-cont-4" style="text-align: center; padding-top: 1em;" >
+            &#129300;&nbsp; is this really doing "detection"?
+         </p>
+      </section>
+
+      <!-- MammalNet v3 -->
+      <section class="slide" id="methodology-1">
+         <h2>MammalNet v3: triple the v's, triple the nets</h2>
+         <div class="slide" id="methodology-2">
+            <ul style="margin-top: 0.5em;">
+               <li>
+                  there have been huge advancements to the SOTA in object detection/semantic segmentation:
+               </li>
+            </ul>
+            <div class="row">
+               <div class="column-33" style="margin: auto;">
+                  <img style="width: 66.7%; float: right; margin-top: 5%; border-radius: 10px" src="media/images/yolo_paper.png"/>
+               </div>
+               <div class="column-33">
+                  <img style="width: 90%; border-radius: 10px" src="media/images/mask_rcnn_paper.png"/>
+               </div>
+               <div class="column-33">
+                  <img style="width: 66.7%; float: left; margin-top: 5%; border-radius: 10px" src="media/images/faster_rcnn_paper.png"/>
+               </div>
+            </div>
+         </div>
+
+         <div class="slide" id="methodology-3">
+            <ul>
+               <li>
+                  in the frequency domain, marine mammal vocalization detection is more or less the same task!
+               </li>
+               <li>
+                  for v2 we had full bounding box annotations, but we only used the start/end times
+               </li>
+               <li>
+                  the underlying (neural net) architecture of v3 is Mask R-CNN <a href="#references">[3]</a>
+               </li>
+            </ul>
+         </div>
+
+         <p style="font-size: 0.5em; position: absolute; bottom: 10%; left: 40%;">
+            screenshots taken from arXiv.org
+         </p>
+      </section>
+
+      <section class="slide" id="methodology-cont-1">
+         <h2 class="section-continued">MammalNet v3 (continued)... 2/3</h2>
+         <p style="margin-bottom: 0.5em; padding-top: 0.5em;">
+            Mask R-CNN is composed of three nets:
+         </p>
+         <div class="row" style="padding-top: .5em; font-size: 0.9em;">
+            <div class="slide" id="methodology-cont-2">
+               <div class="column-5">&nbsp;</div>
+               <div class="column-30" style="border: 1px solid black; border-radius: 5px;">
+                  <h5 style="text-align: center; margin-top: 1em; margin-bottom: 0; text-decoration: underline;">
+                     1. the feature extraction net
+                  </h5>
+                  <p style="margin: 25px">
+                     TODO: explain the backbone net and FPN
+                  </p>
+               </div>
+            </div>
+
+            <div class="slide" id="methodology-cont-3">
+               <div class="column-5">&nbsp;</div>
+               <div class="column-30"  style="border: 1px solid black; border-radius: 5px;">
+                  <h5 style="text-align: center; margin-top: 1em; margin-bottom: 0; text-decoration: underline;">
+                     2. the region proposal net
+                  </h5>
+                  <p style="margin: 25px">
+                     TODO: explain the RPN and RoI Align
+                  </p>
+               </div>
+            </div>
+
+            <div class="slide" id="methodology-cont-4">
+               <div class="column-5">&nbsp;</div>
+               <div class="column-30"  style="border: 1px solid black; border-radius: 5px;">
+                  <h5 style="text-align: center; margin-top: 1em; margin-bottom: 0; text-decoration: underline;">
+                     3. the head net
+                  </h5>
+                  <p style="margin: 25px">
+                     TODO: explain bounding box regr, etc.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="slide no-header" id="methodology-cont-5">
+         <h2 class="section-continued">MammalNet v3 (continued)... 3/3</h2>
+         <p style="padding-top: 0.5em;">
+            ...
+         </p>
+      </section>
+
+      <!-- Acoustic Recordings -->
+      <section class="slide" id="recordings">
+         <h2>Acoustic recordings</h2>
+         <div class="row">
+            <div class="column-40" style="margin: auto;">
+               <img style="width: 90%; float: left; margin-top: 0.5em; border-radius: 10px;" src="media/images/deployment_map.png"/>
+            </div>
+            <div class="column-60" style="margin-top: 0.5em;">
+               TODO: list all the details about the ESRF deployment (from the report)
+            </div>
+         </div>
+      </section>
+
+      <!-- Training Details -->
+      <section class="slide" id="training-details">
+         <h2>Training details</h2>
+         <p>A few training details...</p>
+         <ul>
+            <li>Each CNN was trained using a batch size of 128</li>
+            <li>stochastic gradient descent (SGD) was used as an opt. routine</li>
+            <li>The initial learning rate was set to 0.003 and decayed by a factor of 10 after learning plateau'd</li>
+         </ul>
+      </section>
+
+      <!-- Results -->
+      <section class="slide" id="results-1">
+         <h2>Experimental results</h2>
+         <table class="mnml-table" style="font-size: 0.9em; margin-top: 2em;">
+            <tr>
+               <th>species</th>
+               <th>label</th>
+               <th>instances</th>
+               <th style="border-left: solid 3px #ef8376;">AP<sub>IoU=0.5</sub></th>
+               <th>mAP<sub>[.5:.95]</sub></th>
+               <th style="border-left: solid 3px #ef8376;">AR<sub>IoU=0.5</sub></th>
+               <th>mAR<sub>[.5:.95]</sub></th>
+            </tr>
+            <tr>
+               <td style="text-align: center">overall</td>
+               <td style="text-align: center">-</td>
+               <td style="text-align: center">2813</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>82.1</b></td>
+               <td style="text-align: center">41.8</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>91.9</td>
+               <td style="text-align: center">54.8</td>
+            </tr>
+            <tr>
+               <td style="text-align: center">blue whales</td>
+               <td style="text-align: center">BW</td>
+               <td style="text-align: center">487</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>85.7</b></td>
+               <td style="text-align: center">52.8</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>96.2</b></td>
+               <td style="text-align: center">70.9</td>
+            </tr>
+            <tr>
+               <td style="text-align: center">fin whales</td>
+               <td style="text-align: center">FW</td>
+               <td style="text-align: center">2099</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>75.3</b></td>
+               <td style="text-align: center">30.8</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>89.9</b></td>
+               <td style="text-align: center">40.0</td>
+            </tr>
+            <tr>
+               <td style="text-align: center">sei whales</td>
+               <td style="text-align: center">SW</td>
+               <td style="text-align: center">227</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>85.4</b></td>
+               <td style="text-align: center">41.9</td>
+               <td style="text-align: center; border-left: solid 3px #ef8376;"><b>89.7</b></td>
+               <td style="text-align: center">49.4</td>
+            </tr>
+         </table>
+         <p style="font-size: 0.5em; position: absolute; bottom: 10%; left: 30%;">
+            <b>*</b> metrics are as described in the <a href="http://cocodataset.org/#detection-eval">COCO Detection Challenge</a>
+         </p>
+      </section>
+      <section class="slide" id="results-cont-1">
+         <h2 class="section-continued">Experimental results (cont.)</h2>
+         <img style="width: 75%;" src="media/images/bw_examples.png"/>
+      </section>
+      <section class="slide" id="results-cont-2">
+         <h2 class="section-continued">Experimental results (cont.)</h2>
+         <img style="width: 75%;" src="media/images/fw_examples.png"/>
+      </section>
+      <section class="slide" id="results-cont-3">
+         <h2 class="section-continued">Experimental results (cont.)</h2>
+         <img style="width: 75%;" src="media/images/sw_examples.png"/>
+      </section>
+      <section class="slide" id="results-cont-4">
+         <h2 class="section-continued">Experimental results (cont.)</h2>
+         <p style="text-align: center">R-CNN detections for a recent recording from the Gaspé recorded in September 2019</p>
+         <img style="width: 70%;" src="media/images/test_video.gif"/>
+      </section>
+
+      <!-- Future Work -->
+      <section class="slide" id="future-work">
+         <h2>Future work I'm doing now</h2>
+         <ul>
+            <li class="slide" id="future-work-li-2">semi-supervision for overcoming the partially labelled data problem</li>
+            <li class="slide" id="future-work-li-3">unsupervised learning of acoustic signatures</li>
+            <li class="slide" id="future-work-li-4">interpretability methods for CNNs trained on acoustic data</li>
+         </ul>
+      </section>
+
+      <!-- Acknowledgments -->
+      <section class="slide" id="thanks">
+         <p style="text-align: center; padding-top: 10%">Thanks &#215; 2<sup>53</sup> to my colleagues at JASCO and Dalhousie</p>
+         <ul style="display: block; text-align: center;">
+            <li style="display: inline-block">
+               <img style="border-radius: 50%; width: 220px; padding: 1em 2em;" src="media/images/zissou_stan.jpg"/>
+               <p>Dr. Stan Matwin</p>
+            </li>
+            <li style="display: inline-block">
+               <img style="border-radius: 50%; width: 220px; padding: 1em 2em;" src="media/images/zissou_bruce.jpg"/>
+               <p>Dr. Bruce Martin</p>
+            </li>
+            <li style="display: inline-block">
+               <img style="border-radius: 50%; width: 220px; padding: 1em 2em;" src="media/images/zissou_katie.jpg"/>
+               <p>Katie Kowarski</p>
+            </li>
+            <li style="display: inline-block">
+               <img style="border-radius: 50%; width: 220px; padding: 1em 2em;" src="media/images/zissou_briand.jpg"/>
+               <p>Briand Gaudet</p>
+            </li>
+         </ul>
+         <p style="font-size: 0.5em; position: absolute; bottom: 10%; left: 22.5%;">
+            stills taken from "The Life Aquatic with Steve Zissou". Wes Anderson. Buena Vista Pictures, 2004
+         </p>
+      </section>
+
+      <!-- The End-->
+      <section class="slide" id="the-end">
+         <div class="slide-content">
+            <h1 style="margin-top: 20%; text-align: center;">Thank you for listening!</h1>
+            <br /><br />
+            <table align="center">
+               <tr>
+                  <td class="logo-img" style="padding-right: 40px"><img height="60" src="media/images/dallogo.png" /></td>
+                  <td class="logo-img"><img height="90" src="media/images/bigdatalogo.png" /></td>
+                  <td class="logo-img" style="padding-top: 20px"><img height="90" src="media/images/jascologo.png" /></td>
+               </tr>
+            </table>
+         </div>
+      </section>
+
+      <!-- References -->
+      <section class="slide" id="references">
+         <h2>References</h2>
+         <div id="refs" style="font-size: 0.75em; padding-top: 0">
+            <ol id="refs-list">
+               <li>
+                  <span id="ref-title">Title of the article</span><br />
+                  <span id="ref-author">A. One, A. Two, and A. Three</span><br />
+                  <span id="ref-journal">Journal Name, pp. a–b, (Year)</span>
+               </li>
+            </ol>
+         </div>
+      </section>
+
+   <!-- Close the deck-container -->
+   </div>
+
+   <!-- Load resources -->
+   <script src="core/deck.core.js"></script>
+   <script src="extensions/menu/deck.menu.js"></script>
+   <script src="extensions/goto/deck.goto.js"></script>
+   <script src="extensions/status/deck.status.js"></script>
+   <script src="extensions/scale/deck.scale.js"></script>
+
+   <!-- Initialize the deck -->
+   <script type="text/javascript">
+      $(function() {
+         $.extend(true, $.deck.defaults, {
+            selectors: {
+               statusCurrent: '.deck-status-current',
+               statusTotal: '.deck-status-total'
+            },
+            countNested: false
+         });
+         $.deck('.slide');
+         $.deck('enableScale')
+      });
+   </script>
+
+</body>
+
+</html>
