@@ -92,9 +92,22 @@ u {
   height: 100%
 }
 
+.column-45 {
+  float: left;
+  width: 48%;
+  height: 100%
+}
+
+
 .column-75 {
   float: left;
   width: 75%;
+  height: 100%
+}
+
+.column-22 {
+  float: left;
+  width: 22%;
   height: 100%
 }
 
@@ -127,6 +140,13 @@ u {
   width: 2.5%;
   height: 100%
 }
+
+.column-7 {
+  float: left;
+  width: 5%;
+  height: 100%
+}
+
 
 .column-60 {
   float: left;
@@ -260,6 +280,56 @@ u {
                 0 10px 10px rgba(255,255,255,.2),
                 0 20px 20px rgba(255,255,255,.15);
 }
+
+.strike-through {
+   text-decoration: line-through;
+}
+
+.add-underline {
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+.good-before {
+  list-style: none;
+}
+
+.good-before > li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+}
+
+.good-before > li::before {
+    content: "👍 ";
+}
+
+.meh-before {
+  list-style: none;
+}
+
+.meh-before > li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+}
+
+.meh-before > li::before {
+    content: "🤷 ";
+}
+
+
+.bad-before {
+  list-style: none;
+}
+
+.bad-before > li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+}
+
+.bad-before > li::before {
+    content: "👎 ";
+}
+
 
 #thanks-to {
 	position: relative;
