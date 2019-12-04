@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="description" content="MammalNet (2018-06)">
+   <meta name="author" content="Mark Thomas">
+   <title>ASA Meeting - San Diego</title>
+   <link rel="shortcut icon" href="favicon.ico" />
+
+   <!-- CSS -->
+   <link rel="stylesheet" media="screen" href="core/deck.core.css">
+   <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+   <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+   <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+   <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+   <link rel="stylesheet" media="screen" href="style.css">
+   <link rel="stylesheet" media="screen" href="transition/fade.css">
+   <link rel="stylesheet" media="print" href="core/print.css">
+
+   <!-- JavaScript -->
+   <script src="vendor/jquery.min.js"></script>
+   <script src="vendor/modernizr.custom.js"></script>
+   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+   <!-- Open the deck-container -->
+   <div class="deck-container">
+
+      <section class="slide" id="results-1">
+         <img style="padding-top: 5%; width: 75%;" src="media/images/bw_examples.png"/>
+      </section>
+
+      <section class="slide" id="results-2">
+         <img style="padding-top: 5%; width: 75%;" src="media/images/fw_examples.png"/>
+      </section>
+
+      <section class="slide" id="results-3">
+         <img style="padding-top: 5%; width: 75%;" src="media/images/sw_examples.png"/>
+      </section>
+
+      <section class="slide" id="results-4">
+         <p style="text-align: center">R-CNN detections for a recent recording from the Gaspé recorded in September 2019</p>
+         <img style="padding-top: 5%; width: 70%;" src="media/images/test_video.gif"/>
+      </section>
+
+   <!-- Close the deck-container -->
+   </div>
+
+   <!-- Load resources -->
+   <script src="core/deck.core.js"></script>
+   <script src="extensions/menu/deck.menu.js"></script>
+   <script src="extensions/goto/deck.goto.js"></script>
+   <script src="extensions/scale/deck.scale.js"></script>
+   <script src="extensions/deck.events.js"></script>
+
+   <!-- Initialize the deck -->
+   <script type="text/javascript">
+      $(function() {
+         $.deck('.slide');
+         $.deck('enableScale')
+      });
+   </script>
+
+</body>
+
+</html>

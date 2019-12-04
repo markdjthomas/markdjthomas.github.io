@@ -1,0 +1,490 @@
+/* ======================= custom styles ======================= */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+	background: url(media/harbour_bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+   height: 1080px;
+   width: 1920px;
+}
+
+h1 {
+	color: #ef8376;
+	font-size: 1.75em;
+	font-weight: bold;
+}
+
+h2 {
+  color: #ef8376;
+  font-size: 1.25em;
+  font-weight: bold;
+  border-bottom: solid 2px #3f3f3f;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+p, ul, ol {
+	font-size: 0.8em;
+}
+
+img, iframe, video {
+  display: block;
+  margin: 0 auto;
+}
+
+em {
+  font-style: italic;
+}
+
+li {
+  padding: 0.25em 0;
+  vertical-align: middle;
+}
+
+li > ol, li > ul {
+  margin-bottom: inherit;
+}
+
+ol { counter-reset: item; }
+ol li { display: block; }
+ol li:before {
+   content: counter(item) ". ";
+   counter-increment: item;
+	margin-right: 1em;
+	padding-bottom: 0;
+}
+
+a {
+	font-weight: 400;
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover	{
+    text-decoration: none;
+	color: #ef8376;
+}
+
+sup {
+	font-size: 0.667em;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 2px solid black;
+  }​
+
+.column-50 {
+  float: left;
+  width: 50%;
+  height: 100%
+}
+
+.column-45 {
+  float: left;
+  width: 48%;
+  height: 100%
+}
+
+
+.column-75 {
+  float: left;
+  width: 75%;
+  height: 100%
+}
+
+.column-22 {
+  float: left;
+  width: 22%;
+  height: 100%
+}
+
+.column-25 {
+  float: left;
+  width: 25%;
+  height: 100%
+}
+
+.column-67 {
+  float: left;
+  width: 67%;
+  height: 100%
+}
+
+.column-33 {
+  float: left;
+  width: 33%;
+  height: 100%
+}
+
+.column-30 {
+  float: left;
+  width: 30%;
+  height: 100%
+}
+
+.column-5 {
+  float: left;
+  width: 2.5%;
+  height: 100%
+}
+
+.column-7 {
+  float: left;
+  width: 5%;
+  height: 100%
+}
+
+
+.column-60 {
+  float: left;
+  width: 60%;
+  height: 100%
+}
+
+.column-40 {
+  float: left;
+  width: 40%;
+  height: 100%
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.section-continued {
+	color: #ef8376;
+   font-size: 0.667em;
+   font-weight: bold;
+	margin-top: 50px;
+   border-bottom: solid 2px #3f3f3f;
+	text-align: right;
+}
+
+.small-comment {
+	font-style: italic;
+	font-size: 0.5em;
+}
+
+.sublist {
+	font-size: 0.85em;
+	padding-top: 0.5em;
+}
+
+.logo-img {
+	padding: 0 25px 0 25px;
+}
+
+.contrib-name {
+	font-size: 0.667em;
+	font-weight: 400;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.contrib-status {
+	font-size: 0.667em;
+	text-align: center;
+	font-weight: 450;
+	margin: 0.25em 0;
+	padding: 0;
+}
+
+.contrib-loc {
+	font-size: 0.6em;
+	text-align: center;
+	font-style: italic;
+	margin: 0;
+	padding: 0;
+}
+
+#sup-title {
+   font-weight: 300;
+   font-size: 0.667em;
+   padding-top: 2em;
+}
+
+#title-credit {
+   position: absolute;
+   bottom: 15%;
+}
+
+#title-author {
+   padding-top: 3em;
+	color: #3f3f3f;
+	font-size: 1.1em;
+	font-weight: 500
+}
+
+#title-inst {
+	color: #3f3f3f;
+	font-size: 0.75em;
+	font-weight: 300
+}
+
+#resnet-deep {
+   text-shadow: 0 1px 0 #aaa,
+                0 2px 0 #a9a9a9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #ccc,
+                0 6px 0 #c9c9c9,
+                0 7px 0 #ddd,
+                0 8px 0 #d9d9d9,
+                0 9px 0 #eee,
+                0 10px 0 #e9e9e9,
+                0 11px 0 #fff,
+                0 12px 0 #f9f9f9,
+                0 6px 1px rgba(255,255,255,.1),
+                0 0 5px rgba(255,255,255,.1),
+                0 1px 3px rgba(255,255,255,.3),
+                0 3px 5px rgba(255,255,255,.2),
+                0 5px 10px rgba(255,255,255,.25),
+                0 10px 10px rgba(255,255,255,.2),
+                0 20px 20px rgba(255,255,255,.15),
+                0 30px 30px rgba(255,255,255,.15),
+                0 40px 40px rgba(255,255,255,.15),
+                0 50px 50px rgba(255,255,255,.15),
+                0 60px 60px rgba(255,255,255,.15),
+                0 70px 70px rgba(255,255,255,.15),
+                0 80px 80px rgba(255,255,255,.15),
+                0 90px 90px rgba(255,255,255,.15);
+}
+
+#vgg-deep {
+   text-shadow: 0 1px 0 #aaa,
+                0 2px 0 #a9a9a9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #ccc,
+                0 6px 1px rgba(255,255,255,.1),
+                0 0 5px rgba(255,255,255,.1),
+                0 1px 3px rgba(255,255,255,.3),
+                0 3px 5px rgba(255,255,255,.2),
+                0 5px 10px rgba(255,255,255,.25),
+                0 10px 10px rgba(255,255,255,.2),
+                0 20px 20px rgba(255,255,255,.15);
+}
+
+.strike-through {
+   text-decoration: line-through;
+}
+
+.add-underline {
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+.good-before {
+  list-style: none;
+}
+
+.good-before > li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+}
+
+.good-before > li::before {
+    content: "👍 ";
+}
+
+.meh-before {
+  list-style: none;
+}
+
+.meh-before > li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+}
+
+.meh-before > li::before {
+    content: "🤷 ";
+}
+
+
+.bad-before {
+  list-style: none;
+}
+
+.bad-before > li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+}
+
+.bad-before > li::before {
+    content: "👎 ";
+}
+
+
+#thanks-to {
+	position: relative;
+	text-align: top;
+}
+
+#refs {
+	font-size: 1em;
+}
+
+#refs-list {
+    counter-reset: list;
+	 padding-left: 0;
+	 display: table;
+}
+
+#refs-list > li {
+	list-style: none;
+	display: table-row;
+}
+
+#refs-list > li:before {
+	content: "[" counter(list) "]";
+	counter-increment: list;
+	display: table-cell;
+	padding-right: 1em;
+	padding-top: 0.75em;
+}
+
+#ref-title {
+	color: #ef8376;
+	font-weight: 600;
+}
+
+#ref-author {
+	font-size: 0.9em;
+	font-weight: 500;
+}
+
+#ref-journal {
+	font-size: 0.8em;
+	color: #3f3f3f;
+	font-style: italic;
+}
+
+/* ======================= deck.js styles ======================= */
+.deck-container {
+  line-height: 1.25;
+  color: #3f3f3f;
+  background-color: transparent;
+  max-width: 1720px;
+  max-height: 1080px;
+  padding-left: auto;
+  padding-right: auto;
+  font-family: "Consolas", sans-serif;
+  font-size: 2.33em;
+}
+
+.deck-container > .slide {
+  margin-top: 50px;
+  padding: 0 50px;
+}
+
+.slide {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.slide-content {
+	position: relative;
+	margin-top: 0;
+}
+
+.slide .deck-before, .slide .deck-previous {
+  opacity: 1;
+}
+
+.slide .deck-before:not(.deck-child-current) .deck-before, .slide .deck-before:not(.deck-child-current) .deck-previous, .slide .deck-previous:not(.deck-child-current) .deck-before, .slide .deck-previous:not(.deck-child-current) .deck-previous {
+  opacity: 1;
+}
+
+.slide .deck-child-current {
+  opacity: 1;
+}
+
+.deck-prev-link, .deck-next-link {
+  background: #ccc;
+  font-family: serif;
+}
+
+.deck-prev-link, .deck-prev-link:hover, .deck-prev-link:focus, .deck-prev-link:active, .deck-prev-link:visited, .deck-next-link, .deck-next-link:hover, .deck-next-link:focus, .deck-next-link:active, .deck-next-link:visited {
+  color: #fff;
+}
+
+.deck-prev-link:hover, .deck-prev-link:focus, .deck-next-link:hover, .deck-next-link:focus {
+  background: #c00;
+  text-decoration: none;
+}
+
+.deck-status {
+	font-size: 0.667em;
+	color: #3f3f3f;
+	text-align: right;
+   margin: 0em 150px 50px 0em;
+ 	font-weight: 500;
+}
+
+.some-top-margin {
+	margin-top: 10%;
+}
+
+.nvd3-top-margin {
+	margin-top: -2.5%;
+}
+
+.no-top-margin {
+	margin-top: -10%;
+}
+
+.more-top-margin {
+	margin-top: 10%;
+}
+
+.mnml-table {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 1em;
+	border-collapse: collapse;
+}
+
+.mnml-table th {
+	padding: .5em 1em .25em 1em;
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 3px solid #ef8376;
+   margin-bottom: 10em;
+}
+
+.mnml-table td {
+	padding: 0.25em 1em 0.25em 1em;
+	font-size: 0.75em;
+}
+
+.mnml-table-line {
+	border-bottom: 1px solid #3f3f3f;
+}
+
+::-moz-selection {
+  background: #c00;
+  color: #fff;
+}
+
+::selection {
+  background: #c00;
+  color: #fff;
+}
